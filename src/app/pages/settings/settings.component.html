@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <div class="w-50 mx-auto d-flex justify-content-center">
+    <form
+      #settingForm = "ngForm"
+      (ngSubmit)="onSubmit(settingForm)">
+    <p class="h3 mb-3">Choose Quiz Type </p>
+    <div class="form-check mb-3">
+      <input class="btn-check" type="radio"  name="binary" [value]="true" [(ngModel)]="userInputs.binary" id="binary" checked>
+      <label class="btn btn-outline-dark" for="binary">
+        Binary (Yes/No)
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="btn-check" type="radio"  name="binary" [value]="false" [(ngModel)]="userInputs.binary" id="multi_choice" >
+      <label class="btn btn-outline-dark" for="multi_choice">
+        Multiple Choice
+      </label>
+    </div>
+
+    <button type="submit" class="btn btn-success mt-4">Save Changes</button>
+    </form>
+  </div>
+</div>

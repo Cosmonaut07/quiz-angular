@@ -1,0 +1,83 @@
+<div class="container mt-5">
+  <ng-container *ngIf="guestUser !== null && questions !== []">
+    <div class="card">
+      <ng-container *ngIf="!isQuizCompleted">
+        <div class="d-flex justify-content-around py-3">
+          <div class="score">
+            <h5>{{score}} Points</h5>
+          </div>
+          <div class="question-remain">
+            <span style="font-style: italic;">Question {{currentQuestionIndex + 1}} of {{questions.length}}</span>
+          </div>
+          <div class="timer">
+            <h5>{{counter * 1000 | date:'mm:ss'}} sec ⏱</h5>
+          </div>
+        </div>
+        <div class="progress mb-3">
+          <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+               [ngStyle]="{'width':progress+'%'}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="question">
+          <div class="card m-3">
+            <div class="card-body">
+
+              <h3 class="p-3">{{questions[currentQuestionIndex]?.question}}</h3>
+
+            </div>
+          </div>
+        </div>
+        <div class="mt-3 p-3 text-center mh-100" style="height: 5rem">
+          <ng-container *ngIf="correctChoice == null && !currentAnswered">
+            <h3 class="text-dark fw-bold"> Choose the answer </h3>
+          </ng-container>
+          <ng-container *ngIf="isChoiceCorrect && correctChoice !== null && currentAnswered">
+            <h3 class="text-success fw-bold"> Correct! The Right Answer Is {{correctChoice.choice!}}</h3>
+          </ng-container>
+          <ng-container *ngIf="!isChoiceCorrect && correctChoice && currentAnswered">
+            <h3 class="text-danger fw-bold"> Sorry you are wrong! :( The Answer Is {{correctChoice.choice!}}</h3>
+          </ng-container>
+        </div>
+        <div class="row mb-5">
+          <div class="col d-flex justify-content-around"
+               *ngFor="let option of questions[currentQuestionIndex]?.choices">
+            <div class="mx-auto btn pointer-event " (click)="answer(currentQuestionIndex,option)">
+              <div class="card">
+                <div class="card-body">
+                  {{option.choice}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-5 text-center" *ngIf="currentAnswered">
+          <button class="btn btn-success mx-auto" (click)="nextQuestion(currentQuestionIndex)">Next Question</button>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="isQuizCompleted">
+        <div class="row d-flex justify-content-between my-4">
+          <div class="result text-center">
+            <ng-container *ngIf="!timeUp">
+              <h3>Congratulations!! <br>You have completed the quiz. <br>Below is your result:</h3>
+            </ng-container>
+            <ng-container *ngIf="timeUp">
+              <h3>Your time ran out <br>Below is your result:</h3>
+            </ng-container>
+              <p>Total Question Attempted : {{questions.length}} </p>
+              <p>Total Correct Answered : {{correctAnswer}} </p>
+              <p>Total Wrong Answered : {{incorrectAnswer}} </p>
+            <ng-container *ngIf="!timeUp">
+              <p>Time left : {{timeLeft  * 1000 | date:'mm:ss' }} </p>
+            </ng-container>
+            <ng-container *ngIf="finalScore !== 0">
+              <p>Your Score : {{finalScore}} Points </p>
+            </ng-container>
+            <button class="btn btn-primary" (click)="resetQuiz()">Reset Quiz</button>
+          </div>
+        </div>
+      </ng-container>
+
+    </div>
+  </ng-container>
+
+</div>

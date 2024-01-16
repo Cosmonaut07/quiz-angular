@@ -1,0 +1,11 @@
+  <header class="d-flex py-3  px-3 border-bottom">
+    <a [routerLink]="['/']" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <span class="fs-4">Famous Quote Quizz</span>
+    </a>
+    <ul class="nav nav-justified nav-pills">
+      <li class="nav-item"><button [routerLink] ="['/login']" class="nav-link" aria-current="page">Admin</button></li>
+
+      <li class="nav-item"><button [routerLink]="['/settings']" class="nav-link">Settings</button></li>
+    </ul>
+  </header>
+    <router-outlet></router-outlet>

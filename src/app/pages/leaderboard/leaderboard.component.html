@@ -1,0 +1,9 @@
+
+<div class="container mt-4">
+  <div class="p-4 d-flex justify-content-between">
+    <button class="btn btn-outline-dark" [routerLink]="['/home']">Go Back</button>
+  </div>
+  <app-table  [options]="tableData.options" [columns]="tableData.columns" [data]="leaderboardData"></app-table>
+
+</div>
+

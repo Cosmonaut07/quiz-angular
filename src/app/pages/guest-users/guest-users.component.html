@@ -1,0 +1,7 @@
+<div class="mt-4 container">
+  <div class="p-4 d-flex justify-content-between">
+    <button class="btn btn-outline-dark" (click)="onBackClick()">Go Back</button>
+  </div>
+</div>
+  <app-table [options]="tableData.options" [actions]="tableData.actions" [columns]="tableData.columns" [data]="entries"></app-table>
+

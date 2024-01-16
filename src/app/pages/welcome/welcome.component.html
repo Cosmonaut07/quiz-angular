@@ -1,0 +1,23 @@
+<div class ="container text-center align-content-center">
+  <form
+    #guestForm = "ngForm"
+    (ngSubmit)="onSubmit(guestForm)"
+    class="w-50 mx-auto ">
+    <h1 class="h3 mb-3 fw-normal">Please enter your details </h1>
+
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" [(ngModel)]="inputData.email">
+      <label for="email">Email address</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" name="name" id="name" placeholder="John" [(ngModel)]="inputData.name">
+      <label for="name">Name</label>
+    </div>
+    <div class="form-floating mb-5">
+      <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Doe" [(ngModel)]="inputData.last_name">
+      <label for="lastName">Last Name</label>
+    </div>
+
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Continue </button>
+  </form>
+</div>

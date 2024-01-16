@@ -1,0 +1,33 @@
+<div *ngIf="columns && data">
+  <div>
+    <div class="row px-2">
+
+      <div class="col py-1" *ngIf="options.autoIndex">
+        {{options.indexTitle}}
+      </div>
+      <div class="col py-1" *ngFor="let column of columns; let i = index;">
+        {{column.title}}
+      </div>
+      <div class="col py-1" *ngIf="actions.length">
+        Actions
+      </div>
+    </div>
+  </div>
+  <div class="table-row-group gap-y-4 px-2 gap-x-4">
+    <div
+      *ngFor="let item of data; let i = index;"
+      class="row py-2 hover:bg-gray-200 gap-4 my-2" [ngClass]="{'bg-light' : (i%2==0)}">
+      <div *ngIf="options.autoIndex" class="col px-2">
+        {{i + 1}}
+      </div>
+      <div *ngFor="let column of columns" class="col px-2">
+        {{item[column.objectKey]}}
+      </div>
+      <div class="col px-2" *ngIf="actions.length">
+        <div *ngFor="let action of actions">
+          <button class="btn " type="button" (click)="invokeAction(item['id'], action.action)">{{action.title}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

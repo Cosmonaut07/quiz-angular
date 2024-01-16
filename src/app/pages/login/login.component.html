@@ -1,0 +1,8 @@
+<div class="mt-4 w-50 mx-auto">
+
+  <form #userForm = "ngForm" (ngSubmit)="onSubmit(userForm)">
+  <input type="email" class="form-control mb-3" placeholder="Email" name="email" [(ngModel)]="userInput.email">
+  <input type="password" class="form-control mb-3" placeholder="Password" name="password" [(ngModel)]="userInput.password">
+  <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+</div>

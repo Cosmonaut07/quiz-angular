@@ -1,0 +1,43 @@
+<div class="container mt-4">
+  <div class="my-4">
+    <button class="btn btn-outline-dark" (click)="onBackClick()">Go Back</button>
+  </div>
+<form #questionForm="ngForm" (ngSubmit)="onSaveClick(questionForm)">
+  <div class="mb-3">
+    <label for="question" class="form-label">Question:</label>
+    <input type="text" class="form-control" name="question" [(ngModel)]="userInput.question.question" id="question" placeholder="Who said 'It is what it is ?'">
+  </div>
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" name="modeSwitch" role="switch" [(ngModel)]="_typeValue" (ngModelChange)="onTypeChange($event)"
+           id="multipleChoice">
+    <label class="form-check-label" for="multipleChoice">Multiple Choice Answer</label>
+  </div>
+  <ng-container>
+    <div class="row mt-5" id="multipleChoiceAnswers">
+      <div class="col-4"  *ngFor="let answer of userInput.answers; let i = index">
+        <div class="card text-bg-light mx-auto mb-3" style="max-width: 18rem;">
+          <div class="card-header d-flex justify-content-between">
+            <div>
+              Answer 1
+            </div>
+            <div>
+              <div class="form-check form-check-reverse">
+                <input class="form-check-input" type="radio" name="answer" [(ngModel)]="userInput.question.correctIndex" [value]="i" id="radio_multi_{{i}}">
+                <label class="form-check-label" for="radio_multi_{{i}}" >
+                  Is Correct
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="card-body text-center">
+            <Input class="card-title" name="answer_one"  ngDefaultControl [(ngModel)]="answer.answer">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </ng-container>
+  <button class="btn btn-primary" type="submit">Add Question</button>
+</form>
+</div>

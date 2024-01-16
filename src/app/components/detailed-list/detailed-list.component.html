@@ -1,0 +1,36 @@
+<div class="row d-flex justify-content-between align-items-start mb-1 border-bottom">
+  <div class="col">
+    {{fieldOptions.field1|replace : '_' : ' '}}
+  </div>
+  <div class="col">
+    {{fieldOptions.field2|replace : '_' : ' '}}
+  </div>
+  <div class="col">
+    {{fieldOptions.field3|replace : '_' : ' '}}
+  </div>
+  <div class="col">
+    {{fieldOptions.field4|replace : '_' : ' '}}
+  </div>
+  <div class="col">
+    {{fieldOptions.field5|replace : '_' : ' '}}
+  </div>
+  <div class="col">
+    {{fieldOptions.field6|replace : '_' : ' '}}
+  </div>
+  <div class="col">
+    {{fieldOptions.field7|replace : '_' : ' '}}
+  </div>
+</div>
+
+<div class="list-group list-group-flush" *ngFor="let data of data">
+  <app-detailed-list-item
+    [field1]="data[fieldOptions.field1]"
+    [field2]="data[fieldOptions.field2]"
+    [field3]="data[fieldOptions.field3]"
+    [field4]="data[fieldOptions.field4]"
+    [field5]="data[fieldOptions.field5]"
+    [field6]="data[fieldOptions.field6]"
+    [field7]="data[fieldOptions.field7]"
+    [fieldOptions]="fieldOptions">
+  </app-detailed-list-item>
+</div>
