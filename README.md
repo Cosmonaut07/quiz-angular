@@ -1,4 +1,4 @@
-# QuizappFront
+# Famous Quotes Quiz 
 
 ## Initial Setup
 
