@@ -4,13 +4,14 @@ import {AuthService} from "../auth/auth.service";
 import {map, Observable} from "rxjs";
 import {APIResponseModel} from "../../models/API/APIResponseModel";
 import {Router} from "@angular/router";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class APIService {
 
-  protected apiUrl: string = 'http://127.0.0.1:8000/api/';
+  protected apiUrl: string = environment.API_URL;
   protected headers: HttpHeaders = new HttpHeaders();
 
   constructor(
